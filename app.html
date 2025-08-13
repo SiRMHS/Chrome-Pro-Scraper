@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pro Scraper</title>
+    <meta
+      name="description"
+      content="Pro Scraper - ابزار استخراج داده با گروه‌بندی و سلکتورهای پیشرفته"
+    />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="topbar">
+        <h1>Pro Scraper</h1>
+        <span class="subtitle" style="font-size: 1em; color: #888">by MHS</span>
+        <div class="grow"></div>
+        <button id="btnResize" class="btn sm">1200×800</button>
+        <button id="btnClose" class="btn danger sm">بستن</button>
+      </header>
+
+      <section class="panel">
+        <div class="form-row">
+          <label>دامنهٔ فعال:</label>
+          <input id="domainView" class="input" type="text" disabled />
+          <button id="refreshProfiles" class="btn sm">بروزرسانی</button>
+        </div>
+
+        <div class="form-row">
+          <label>پروفایل:</label>
+          <select id="profileSelect" class="input"></select>
+          <input
+            id="newProfileName"
+            class="input"
+            placeholder="نام پروفایل جدید"
+          />
+          <button id="createProfile" class="btn">ایجاد/ذخیره</button>
+          <button id="deleteProfile" class="btn danger">حذف</button>
+        </div>
+
+        <div class="form-row">
+          <label>گروه:</label>
+          <select id="groupSelect" class="input"></select>
+          <input id="newGroupName" class="input" placeholder="نام گروه جدید" />
+          <button id="addGroup" class="btn">افزودن گروه</button>
+          <button id="renameGroup" class="btn sm">تغییر نام</button>
+          <button id="deleteGroup" class="btn danger sm">حذف گروه</button>
+        </div>
+
+        <div class="form-row">
+          <button id="startPick" class="btn primary">
+            شروع انتخاب (گروه جاری)
+          </button>
+          <button id="stopPick" class="btn">توقف</button>
+          <button id="testScrape" class="btn">تست اسکرپ (گروه جاری)</button>
+          <button id="scrapeAll" class="btn sm">اسکرپ همه گروه‌ها</button>
+          <button id="exportJSON" class="btn">خروجی JSON</button>
+          <button id="exportCSV" class="btn">خروجی CSV</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h3>سلکتورهای گروه</h3>
+          <div id="selectorsList" class="list"></div>
+        </div>
+        <div class="card">
+          <h3>پیش‌نمایش خروجی</h3>
+          <pre id="preview" class="pre"></pre>
+        </div>
+      </section>
+    </main>
+
+    <template id="selectorRowTmpl">
+      <div class="row">
+        <input class="k input" placeholder="key" />
+        <input class="s input" placeholder="selector CSS" />
+        <input class="a input" placeholder="attr (text/html/attr:href)" />
+        <label class="chk"><input class="all" type="checkbox" /> همه</label>
+
+        <!-- Regex options -->
+        <input
+          class="rxp input"
+          placeholder="regex pattern (مثلاً \\d+(?:\\.\\d+)?)"
+        />
+        <input class="rxf input" placeholder="flags (gmi)" />
+        <select class="rxm input">
+          <option value="capture">capture</option>
+          <option value="replace">replace</option>
+        </select>
+        <input
+          class="rxg input"
+          type="number"
+          min="0"
+          step="1"
+          placeholder="group (پیش‌فرض 1)"
+        />
+        <input class="rxr input" placeholder="replacement (برای replace)" />
+
+        <button class="btn sm danger del">حذف</button>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+    <footer
+      style="
+        text-align: center;
+        margin-top: 2em;
+        color: #888;
+        font-size: 1.44em;
+      "
+    >
+      <h3>version 2.0.0</h3>
+      <div>created with ❤️ MHS</div>
+      <div>
+        <a
+          href="https://github.com/sirmhs"
+          target="_blank"
+          style="color: #4078c0; text-decoration: none; margin: 0 0.5em"
+          >GitHub</a
+        >
+        <span style="color: #bbb">|</span>
+        <a
+          href="https://t.me/SiRMHS"
+          target="_blank"
+          style="color: #229ed9; text-decoration: none; margin: 0 0.5em"
+          >Telegram</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "Pro Scraper (Standalone Window)",
+  "description": "Profile-based web scraper with selector picker, preview, and export.",
+  "version": "2.0.0",
+  "manifest_version": 3,
+  "action": { "default_title": "Open Pro Scraper" },
+  "permissions": ["storage", "scripting", "activeTab", "tabs", "windows"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["utils.js", "contentScript.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["app.html", "app.css", "app.js"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}
