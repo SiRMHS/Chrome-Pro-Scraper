@@ -1,4 +1,5 @@
 # Chrome Selector Scraper Extension
+<a href="https://ibb.co/n8CD2fzL"><img src="https://i.ibb.co/R4yCnPzD/Screenshot-2025-08-14-034316.png" alt="Screenshot-2025-08-14-034316" border="0"></a>
 
 پیشنهادات خودتونو میتونید تو دیسکورد یا تلگرام بهم بگید :)
 - https://t.me/SiRMHS
@@ -93,3 +94,4 @@
 
 ```css
 background-image: url("https://example.com/image.jpg");
+
